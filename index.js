@@ -89,7 +89,16 @@ app.post('/ai/summary',
 
         } catch (error) {
             console.error('Erro ao chamar Groq:', error);
-            response.status(500).json({ message: 'Erro ao gerar resumo' });
+
+            return response.status(200).json({
+                summary: {
+                    insights: [
+                        { emoji: '💰', texto: 'Continue registrando suas transações para obter insights personalizados.' },
+                        { emoji: '📊', texto: 'Acompanhe seus gastos mensalmente para manter o controle financeiro.' },
+                        { emoji: '🎯', texto: 'Defina metas de economia para conquistar sua liberdade financeira.' }
+                    ]
+                }
+            });
         }
     }
 );
